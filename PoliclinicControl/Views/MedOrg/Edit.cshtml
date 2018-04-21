@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+@model PoliclinicControl.Models.MedOrg
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Покупка</title>
+</head>
+<body>
+    <div>
+        <h2>Поликлиника № @Model.Id</h2>
+        <form method="post" action="">
+            <input type="hidden" value="@Model.Id" name="BookId" />
+            <table>
+
+                <tr>
+                    <td><p>Введите новое имя :</p></td>
+                    <td>
+                        <input type="text" name="Name" value="@Model.Name" />
+                    </td>
+                </tr>
+                <tr><td><input type="submit" value="Отправить" /> </td><td></td></tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Книжный магазин</title>
+</head>
+<body>
+    <div>
+        <h3>Организации</h3>
+        <table>
+            <tr>
+                <td>id</td>
+                <td>Наименование</td>
+                <td></td>
+            </tr>
+            @foreach (var b in ViewBag.med_orgs)
+            {
+                <tr>
+                    <td><p>@b.Id</p></td>
+                    <td><p>@b.Name</p></td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>
