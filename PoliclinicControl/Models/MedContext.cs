@@ -8,5 +8,6 @@ namespace PoliclinicControl.Models
     public class MedContext : DbContext
     {
         public DbSet<MedOrg> MedOrgs { get; set; }
+        public DbSet<Client> Clients { get; set; }
     }
 }

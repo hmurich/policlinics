@@ -1,0 +1,84 @@
+﻿
+@{
+    ViewBag.Title = "Справочник пациентов";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-title">
+                <h4>@ViewBag.Title</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Имя</th>
+                                <th>Фамилия</th>
+                                <th>Отчество</th>
+                                <th>ИИН</th>
+                                <th>
+                                    <a href="#add" class="btn btn-info btn-flat  btn-sm btn-block call_dialog_edit">Добавить</a>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var b in ViewBag.clients)
+                            {
+                            <tr>
+                                <th scope="row">@b.Id</th>
+                                <td>@b.FName</td>
+                                <td>@b.LName</td>
+                                <td>@b.PName</td>
+                                <td>@b.Iin</td>
+                                <td>
+                                    <a href="#edit" class="btn btn-info btn-flat  btn-sm btn-block call_dialog_edit"
+                                       data-val-Id="@b.Id"
+                                       data-action-object="/Client/GetAjaxObject/@b.Id">Изменить</a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form action="/Client/Save" method="post">
+    <div class="modal" tabindex="-1" role="dialog" id="dialog_edit">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Форма</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label">Имя</label>
+                        <input type="text" class="form-control input-default " name="FName" placeholder="Введите имя" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Фамилия</label>
+                        <input type="text" class="form-control input-default " name="LName" placeholder="Введите фамилия" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Отчество</label>
+                        <input type="text" class="form-control input-default " name="PName" placeholder="Введите отчесов" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">ИИН</label>
+                        <input type="text" class="form-control input-default " name="Iin" placeholder="Введите ИИН" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" class="form-control" name="Id" value="">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
