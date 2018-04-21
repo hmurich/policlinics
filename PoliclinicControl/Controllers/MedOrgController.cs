@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using PoliclinicControl.Models;
 using System.Data.Entity;
+using System.Web.Script.Serialization;
+
 
 namespace PoliclinicControl.Controllers
 {
@@ -14,6 +16,7 @@ namespace PoliclinicControl.Controllers
         MedContext db = new MedContext();
 
         // GET: MedOrg
+        [HttpGet]
         public ActionResult Index()
         {
             IEnumerable<MedOrg> med_orgs = db.MedOrgs;
@@ -21,9 +24,8 @@ namespace PoliclinicControl.Controllers
 
             return View();
         }
-
-        [HttpGet]
-        public ActionResult Edit(int? id)
+        [HttpPost]
+        public ActionResult GetAjaxObject(int? id)
         {
             if (id == null)
                 return HttpNotFound();
@@ -31,14 +33,23 @@ namespace PoliclinicControl.Controllers
             MedOrg med_org = db.MedOrgs.Find(id);
             if (med_org == null)
                 return HttpNotFound();
+            var json = new JavaScriptSerializer().Serialize(med_org);
 
-            return View(med_org);
+            return Content(json, "application/json");
         }
+
         [HttpPost]
-        public ActionResult Edit(MedOrg med_org)
+        public ActionResult Save(MedOrg med_org)
         {
-            db.Entry(med_org).State = EntityState.Modified;
-            db.SaveChanges();
+            using (var context = new MedContext())
+            {
+                context.Entry(med_org).State = med_org.Id == 0 ?
+                                           EntityState.Added :
+                                           EntityState.Modified;
+
+                context.SaveChanges();
+            }
+
             return RedirectToAction("Index");
         }
     }
