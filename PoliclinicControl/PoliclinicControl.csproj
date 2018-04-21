@@ -174,11 +174,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MedAttachController.cs" />
     <Compile Include="Controllers\MedOrgController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Client.cs" />
+    <Compile Include="Models\MedAttach.cs" />
     <Compile Include="Models\MedOrgDbInitializer.cs" />
     <Compile Include="Models\MedContext.cs" />
     <Compile Include="Models\MedOrg.cs" />
@@ -222,6 +224,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\MedAttach\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

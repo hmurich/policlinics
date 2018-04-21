@@ -9,5 +9,6 @@ namespace PoliclinicControl.Models
     {
         public DbSet<MedOrg> MedOrgs { get; set; }
         public DbSet<Client> Clients { get; set; }
+        public DbSet<MedAttach> MedAttachs{ get; set; }
     }
 }
