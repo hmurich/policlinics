@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Data.Entity;
+using PoliclinicControl.Models;
 
 namespace PoliclinicControl.Models
 {

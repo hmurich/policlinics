@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace PoliclinicControl.Models
 {
-    public class MedOrgDbInitializer : DropCreateDatabaseAlways<MedContext>
+    public class MedOrgDbInitializer : DropCreateDatabaseIfModelChanges<MedContext>
     {
         protected override void Seed(MedContext db)
         {

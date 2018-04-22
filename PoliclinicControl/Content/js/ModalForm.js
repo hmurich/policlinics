@@ -24,3 +24,30 @@
 
     $('#' + modal_name).modal('show');
 });
+
+if ($('#send_med_attach').length > 0) {
+    $('#send_med_attach').hide();
+    $('#js_find_client').click(function () {
+        var val = $("#js_find_client_val").val();
+        console.log(val);
+        $.post("/MedAttach/GetAjaxClients", { find: val }).done(function (data) {
+            $('#ClientId').empty();
+            if (data.length == 0) {
+                $('#send_med_attach').hide('slow');
+                return false;
+            }
+
+            $.each(data, function (index, value) {
+                $('#ClientId').append("<option value='" + value.Id + "'>" + value.FName + " " + value.PName + " " + value.LName + " </option>");
+
+            });
+
+            $('#send_med_attach').show('slow');
+        });
+    });
+}
+
+
+
+
+

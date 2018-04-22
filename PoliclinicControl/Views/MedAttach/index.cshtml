@@ -1,0 +1,42 @@
+﻿@model PoliclinicControl.Models.MedAttach
+@{
+    ViewBag.Title = "Прикрепление пациентов";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-title">
+                <h4>@ViewBag.Title</h4>
+            </div>
+            <div class="card-body">
+                <div class="basic-form">
+                    <div class="input-group input-group">
+                        <input type="text" placeholder="Найти пациента" class="form-control" id="js_find_client_val" required>
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary btn-group-right" type="submit" id="js_find_client">
+                                <i class="ti-search"></i>
+                            </button>
+                        </span>
+                    </div>
+
+                    <form action="/MedAttach/Save" method="post" id="send_med_attach">
+                        <div class="form-group">
+                            <label class="control-label">Поликлиника</label>
+                            @Html.DropDownListFor(model => model.MedOrgs, ViewBag.MedOrgs as SelectList, new { @class = "form-control" })
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label">Пациент</label>
+                            @Html.DropDownListFor(model => model.Client, new List<SelectListItem>(), new { @class = "form-control", @id = "ClientId" })
+                        </div>
+                        <div class="form-group">
+                            <div class=" col-md-12">
+                                <button type="submit" class="btn btn-info btn-block">Отправить</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

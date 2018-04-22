@@ -18,10 +18,12 @@ namespace PoliclinicControl.Models
         public int StatusId { get; set; }
 
         public int MedOrgId { get; set; }
-        public MedOrg MedOrg { get; set; }
+        public MedOrg MedOrgs { get; set; }
 
         public DateTime DateCreated { get; set; }
 
-        public DateTime DateClosed { get; set; }
+        public DateTime? DateClosed { get; set; }
+
+       
     }
 }
