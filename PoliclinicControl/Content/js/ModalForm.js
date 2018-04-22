@@ -10,7 +10,14 @@
                 
                 var name = $(this).attr('name');
                 console.log(data, name);
-                $(this).val(data[name]);
+                if (data[name] === true || data[name] === false) {
+                    if (data[name])
+                        $(this).val('true');
+                    else 
+                        $(this).val('false');
+                }
+                else
+                    $(this).val(data[name]);
             });
         });
     }

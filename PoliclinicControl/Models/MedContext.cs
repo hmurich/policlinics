@@ -12,5 +12,7 @@ namespace PoliclinicControl.Models
         public DbSet<Client> Clients { get; set; }
         public DbSet<MedAttach> MedAttachs{ get; set; }
         public DbSet<Status> Status { get; set; }
+        public DbSet<User> Users { get; set; }
+
     }
 }

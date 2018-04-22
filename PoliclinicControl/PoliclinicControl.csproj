@@ -175,8 +175,10 @@
     <Compile Include="Controllers\AttachControlController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\MedAttachController.cs" />
     <Compile Include="Controllers\MedOrgController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -186,6 +188,7 @@
     <Compile Include="Models\MedContext.cs" />
     <Compile Include="Models\MedOrg.cs" />
     <Compile Include="Models\Status.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +232,8 @@
     <Content Include="Views\Client\Index.cshtml" />
     <Content Include="Views\MedAttach\index.cshtml" />
     <Content Include="Views\AttachControl\Index.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

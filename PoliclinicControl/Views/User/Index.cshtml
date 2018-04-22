@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "Справочник организаций";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-title">
+                <h4>@ViewBag.Title</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">id</th>
+                                <th rowspan="2">Логин</th>
+                                <th rowspan="2">Пароль</th>
+                                <th colspan="4">Доступы</th>
+                                <th rowspan="2">
+                                    <a href="#add" class="btn btn-info btn-flat  btn-sm btn-block call_dialog_edit">Добавить</a>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th >К Справочникам</th>
+                                <th >К прикреплению</th>
+                                <th >К контролю</th>
+                                <th >К отчетам</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var b in ViewBag.users)
+                            {
+                            <tr>
+                                <th scope="row">@b.Id</th>
+                                <td>@b.Login</td>
+                                <td>@b.Password</td>
+                                <td>@(b.IsAdmin ? "Yes" : "No")</td>
+                                <td>@(b.IsAttach ? "Yes" : "No")</td>
+                                <td>@(b.IsControl ? "Yes" : "No")</td>
+                                <td>@(b.IsReport ? "Yes" : "No")</td>
+                                <td>
+                                    <a href="#edit" class="btn btn-info btn-flat  btn-sm btn-block call_dialog_edit"
+                                       data-val-Id="@b.Id"
+                                       data-action-object="/User/GetAjaxObject/@b.Id">Изменить</a>
+                                </td>
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form action="/User/Save" method="post">
+    <div class="modal" tabindex="-1" role="dialog" id="dialog_edit">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Форма</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label">Логин</label>
+                        <input type="text" class="form-control input-default " name="Login" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Пароль</label>
+                        <input type="text" class="form-control input-default " name="Password" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Доступ к справочникам</label>
+                        <select name="IsAdmin" class="form-control">
+                            <option value="true">Да</option>
+                            <option value="false">Нет</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Доступ к прикреплению</label>
+                        <select name="IsAttach" class="form-control">
+                            <option value="true">Да</option>
+                            <option value="false">Нет</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Доступ к контролю</label>
+                        <select name="IsControl" class="form-control">
+                            <option value="true">Да</option>
+                            <option value="false">Нет</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Доступ к отчетам</label>
+                        <select name="IsReport" class="form-control">
+                            <option value="true">Да</option>
+                            <option value="false">Нет</option>
+                        </select>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" class="form-control" name="Id" value="">
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

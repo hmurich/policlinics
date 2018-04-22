@@ -54,11 +54,8 @@
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="/Content/images/users/5.jpg" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="#"><i class="ti-user"></i> Profile</a></li>
-                                    <li><a href="#"><i class="ti-wallet"></i> Balance</a></li>
-                                    <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-                                    <li><a href="#"><i class="ti-settings"></i> Setting</a></li>
-                                    <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                                    
+                                    <li><a href="/Login/Logoff"><i class="fa fa-power-off"></i> Выйти</a></li>
                                 </ul>
                             </div>
                         </li>
@@ -78,14 +75,16 @@
                         <li class="nav-label">Страницы</li>
                         <li>
                             <a href="/" aria-expanded="false">
-                                <i class="fa fa-tachometer"></i>
+
+                                <i class="fa fa-add"></i>
                                 <span class="hide-menu">
-                                    Главная
+                                    Отчет
                                 </span>
                             </a>
                         </li>
                         <li>
                             <a href="/MedAttach" aria-expanded="false">
+
                                 <i class="fa fa-add"></i>
                                 <span class="hide-menu">
                                     Прикрепление пациентов
@@ -114,6 +113,14 @@
                                 <i class="fa fa-add"></i>
                                 <span class="hide-menu">
                                     Пациенты
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="/User" aria-expanded="false">
+                                <i class="fa fa-add"></i>
+                                <span class="hide-menu">
+                                    Пользователи
                                 </span>
                             </a>
                         </li>
@@ -160,18 +167,10 @@
     @Scripts.Render("~/Content/js/jquery.slimscroll.js")
     @Scripts.Render("~/Content/js/sidebarmenu.js")
     @Scripts.Render("~/Content/js/lib/sticky-kit-master/dist/sticky-kit.min.js")
-    @Scripts.Render("~/Content/js/lib/datamap/d3.min.js")
-    @Scripts.Render("~/Content/js/lib/datamap/topojson.js")
-    @Scripts.Render("~/Content/js/lib/datamap/datamaps.world.min.js")
-    @Scripts.Render("~/Content/js/lib/datamap/datamap-init.js")
-    @Scripts.Render("~/Content/js/lib/weather/jquery.simpleWeather.min.js")
-    @Scripts.Render("~/Content/js/lib/weather/weather-init.js")
+    
     @Scripts.Render("~/Content/js/lib/owl-carousel/owl.carousel.min.js")
     @Scripts.Render("~/Content/js/lib/owl-carousel/owl.carousel-init.js")
 
-    @Scripts.Render("~/Content/js/lib/chartist/chartist.min.js")
-    @Scripts.Render("~/Content/js/lib/chartist/chartist-plugin-tooltip.min.js")
-    @Scripts.Render("~/Content/js/lib/chartist/chartist-init.js")
     @Scripts.Render("~/Content/js/custom.min.js")
     @Scripts.Render("~/Content/js/ModalForm.js")
 
