@@ -8,6 +8,7 @@ using System.Data.Entity;
 
 namespace PoliclinicControl.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         // создаем контекст данных

@@ -35,15 +35,16 @@ namespace PoliclinicControl.Controllers
         {
             string login = Request["Name"];
             string password = Request["Password"];
-            db.Users.Add(new User { Login = login, Password = password });
-            db.SaveChanges();
 
             User user = db.Users.Where(u => u.Login == login && u.Password == password).FirstOrDefault();
-
-            user = db.Users.FirstOrDefault(u => u.Login == login);
             if (user != null)
             {
                 FormsAuthentication.SetAuthCookie(login, true);
+                Session["IsAdmin"] = user.IsAdmin;
+                Session["IsAttach"] = user.IsAttach;
+                Session["IsControl"] = user.IsControl;
+                Session["IsReport"] = user.IsReport;
+
                 return RedirectToAction("Index", "Home");
             }
 

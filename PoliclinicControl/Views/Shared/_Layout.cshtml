@@ -73,57 +73,71 @@
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Страницы</li>
-                        <li>
-                            <a href="/" aria-expanded="false">
+                        @if (HttpContext.Current.Session["IsReport"] != null && (bool)HttpContext.Current.Session["IsReport"])
+                        {
+                             <li>
+                                <a href="/" aria-expanded="false">
 
-                                <i class="fa fa-add"></i>
-                                <span class="hide-menu">
-                                    Отчет
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/MedAttach" aria-expanded="false">
+                                    <i class="fa fa-add"></i>
+                                    <span class="hide-menu">
+                                        Отчет
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                       
+                         @if (HttpContext.Current.Session["IsAttach"] != null &&  (bool)HttpContext.Current.Session["IsAttach"])
+                         {
+                            <li>
+                                <a href="/MedAttach" aria-expanded="false">
 
-                                <i class="fa fa-add"></i>
-                                <span class="hide-menu">
-                                    Прикрепление пациентов
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/AttachControl" aria-expanded="false">
-                                <i class="fa fa-add"></i>
-                                <span class="hide-menu">
-                                    Контролирующий Модуль
-                                </span>
-                            </a>
-                        </li>
-                        <li class="nav-label">Справочники</li>
-                        <li>
-                            <a href="/MedOrg" aria-expanded="false">
-                                <i class="fa fa-add"></i>
-                                <span class="hide-menu">
-                                    Поликлиники
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/Client" aria-expanded="false">
-                                <i class="fa fa-add"></i>
-                                <span class="hide-menu">
-                                    Пациенты
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="/User" aria-expanded="false">
-                                <i class="fa fa-add"></i>
-                                <span class="hide-menu">
-                                    Пользователи
-                                </span>
-                            </a>
-                        </li>
+                                    <i class="fa fa-add"></i>
+                                    <span class="hide-menu">
+                                        Прикрепление пациентов
+                                    </span>
+                                </a>
+                            </li>
+                         }
+                        @if (HttpContext.Current.Session["IsControl"] != null &&  (bool)HttpContext.Current.Session["IsControl"])
+                        {
+                            <li>
+                                <a href="/AttachControl" aria-expanded="false">
+                                    <i class="fa fa-add"></i>
+                                    <span class="hide-menu">
+                                        Контролирующий Модуль
+                                    </span>
+                                </a>
+                            </li>
+                        }
+                        
+                        @if (HttpContext.Current.Session["IsAdmin"] != null &&  (bool)HttpContext.Current.Session["IsAdmin"])
+                        {
+                            <li class="nav-label">Справочники</li>
+                            <li>
+                                <a href="/MedOrg" aria-expanded="false">
+                                    <i class="fa fa-add"></i>
+                                    <span class="hide-menu">
+                                        Поликлиники
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Client" aria-expanded="false">
+                                    <i class="fa fa-add"></i>
+                                    <span class="hide-menu">
+                                        Пациенты
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/User" aria-expanded="false">
+                                    <i class="fa fa-add"></i>
+                                    <span class="hide-menu">
+                                        Пользователи
+                                    </span>
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </nav>
                 <!-- End Sidebar navigation -->

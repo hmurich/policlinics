@@ -10,6 +10,7 @@ using System.Web.Script.Serialization;
 
 namespace PoliclinicControl.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         // создаем контекст данных

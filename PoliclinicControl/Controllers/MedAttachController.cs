@@ -9,6 +9,7 @@ using System.Web.Script.Serialization;
 
 namespace PoliclinicControl.Controllers
 {
+    [Authorize]
     public class MedAttachController : Controller
     {
         // создаем контекст данных

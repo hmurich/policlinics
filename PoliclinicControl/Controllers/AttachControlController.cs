@@ -8,6 +8,7 @@ using System.Data.Entity;
 
 namespace PoliclinicControl.Controllers
 {
+    [Authorize]
     public class AttachControlController : Controller
     {
         // создаем контекст данных
