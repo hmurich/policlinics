@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Справочник организаций";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-title">
+                <h4>@ViewBag.Title</h4>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>Пациент</th>
+                                <th>Организация</th>
+                                <th>Дата создания</th>
+                                <th>Статус</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var b in ViewBag.MedAttachs)
+                            {
+                            <tr>
+                                <th scope="row">@b.Id</th>
+                                <td>@b.Client.FName @b.Client.LName @b.Client.PName (@b.Client.Iin)</td>
+                                <td>@b.MedOrgs.Name</td>
+                                <td>@b.DateCreated</td>
+                                <th>@b.Status.Name</th>
+                                @if (b.StatusId == 1)
+                                {
+                                    <td>
+                                        <a href="/AttachControl/Apply/@b.Id"
+                                           class="btn btn-success btn-flat  btn-sm  pull-left">Одобрить</a>
+                                    </td>
+                                    <td>
+                                        <a href="/AttachControl/Cancel/@b.Id"
+                                           class="btn btn-danger btn-flat  btn-sm  pull-left">Отказать</a>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td></td><td></td>
+                                }
+                                
+                            </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -6,7 +6,7 @@ using System.Data.Entity;
 
 namespace PoliclinicControl.Models
 {
-    public class MedOrgDbInitializer : DropCreateDatabaseIfModelChanges<MedContext>
+    public class MedOrgDbInitializer : CreateDatabaseIfNotExists<MedContext>
     {
         protected override void Seed(MedContext db)
         {
@@ -17,6 +17,10 @@ namespace PoliclinicControl.Models
             db.Clients.Add(new Client { FName = "Имя 1", LName = "FName 1", PName = "FName 1", Iin = "iin 1" });
             db.Clients.Add(new Client { FName = "Имя 2", LName = "FName 2", PName = "FName 2", Iin = "iin 2" });
             db.Clients.Add(new Client { FName = "Имя 3", LName = "FName 3", PName = "FName 3", Iin = "iin 3" });
+
+            db.Status.Add(new Status { Name = "Создан/В обработке" });
+            db.Status.Add(new Status { Name = "Одобрен.Прикреплен" });
+            db.Status.Add(new Status { Name = "Отказан.Не прикреплен" });
 
             base.Seed(db);
         }

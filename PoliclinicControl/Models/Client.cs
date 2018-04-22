@@ -18,6 +18,7 @@ namespace PoliclinicControl.Models
         // pastronik IIN 
         public string Iin { get; set; }
         // med org
+        public int? MedOrgId { get; set; }
         public MedOrg MedOrgs { get; set; }
         // is_attached
         public bool IsAttached { get; set; }

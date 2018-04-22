@@ -172,6 +172,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AttachControlController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MedAttachController.cs" />
@@ -184,9 +185,14 @@
     <Compile Include="Models\MedOrgDbInitializer.cs" />
     <Compile Include="Models\MedContext.cs" />
     <Compile Include="Models\MedOrg.cs" />
+    <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\PoliclinicControl.Models.MedContext.mdf" />
+    <Content Include="App_Data\PoliclinicControl.Models.MedContext_log.ldf">
+      <DependentUpon>PoliclinicControl.Models.MedContext.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\js\ModalForm.js" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -222,10 +228,9 @@
     <Content Include="Views\MedOrg\Index.cshtml" />
     <Content Include="Views\Client\Index.cshtml" />
     <Content Include="Views\MedAttach\index.cshtml" />
+    <Content Include="Views\AttachControl\Index.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>

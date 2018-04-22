@@ -16,11 +16,12 @@ namespace PoliclinicControl.Models
         public Client Client { get; set; }
 
         public int StatusId { get; set; }
+        public Status Status { get; set; }
 
         public int MedOrgId { get; set; }
         public MedOrg MedOrgs { get; set; }
 
-        public DateTime DateCreated { get; set; }
+        public DateTime? DateCreated { get; set; }
 
         public DateTime? DateClosed { get; set; }
 
